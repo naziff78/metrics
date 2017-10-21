@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="1" databaseName="MYSQL" databaseProductName="MySQL" generation="2016-04-29 13:43:22">
+<table catalog="metrics" databaseType="TABLE" javaBean="MetricsRegistry" name="metrics_registry" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="id_projet" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="idProjet" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id projet" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nom" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="nom" javaType="java.lang.Integer" jdbcTypeCode="4" label="Nom" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_creation" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateCreation" javaType="java.util.Date" jdbcTypeCode="91" label="Date creation" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_modification" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateModification" javaType="java.util.Date" jdbcTypeCode="91" label="Date modification" notNull="false" selected="true"/>
+<fk name="projet_metricsRegistry">
+<fkcol colname="id_projet" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="metrics_registry" tableref="projet" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="metricsRegistry_timers" id="LINK_FK_metricsRegistry_timers_I" inverseSideOf="LINK_FK_metricsRegistry_timers_O" javaName="listOfTimers" javaType="java.util.List" joinTableName="" mappedBy="metricsRegistry" optional="UNDEFINED" owningSide="false" sourceTableName="metrics_registry" targetEntity="Timers" targetTableName="timers" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="projet_metricsRegistry" id="LINK_FK_projet_metricsRegistry_O" inverseSideOf="" javaName="projet" javaType="Projet" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="metrics_registry" targetEntity="Projet" targetTableName="projet" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="id_projet" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="metrics" databaseType="TABLE" javaBean="Projet" name="projet" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nom" dbNotNull="false" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="nom" javaType="java.lang.Integer" jdbcTypeCode="4" label="Nom" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="createur" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="createur" javaType="java.lang.Integer" jdbcTypeCode="4" label="Createur" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="commantaires" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="commantaires" javaType="java.lang.Integer" jdbcTypeCode="4" label="Commantaires" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="date_creation" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="dateCreation" javaType="java.lang.Integer" jdbcTypeCode="4" label="Date creation" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="date_modification" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="dateModification" javaType="java.lang.Integer" jdbcTypeCode="4" label="Date modification" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="projet_metricsRegistry" id="LINK_FK_projet_metricsRegistry_I" inverseSideOf="LINK_FK_projet_metricsRegistry_O" javaName="listOfMetricsRegistry" javaType="java.util.List" joinTableName="" mappedBy="projet" optional="UNDEFINED" owningSide="false" sourceTableName="projet" targetEntity="MetricsRegistry" targetTableName="metrics_registry" used="true"/>
+</table>
+<table catalog="metrics" databaseType="TABLE" javaBean="Timers" name="timers" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="id_metrics_registry" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="idMetricsRegistry" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id metrics registry" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="nom" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="nom" javaType="java.lang.String" jdbcTypeCode="12" label="Nom" maxLength="255" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="count" dbNotNull="false" dbPosition="4" dbSize="2147483647" dbTypeName="LONGTEXT" inputType="text" javaName="count" javaType="java.lang.String" jdbcTypeCode="-1" label="Count" longText="true" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="mean_rate" dbNotNull="false" dbPosition="5" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="meanRate" javaType="java.lang.Double" jdbcTypeCode="8" label="Mean rate" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="one_minute_rate" dbNotNull="false" dbPosition="6" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="oneMinuteRate" javaType="java.lang.Double" jdbcTypeCode="8" label="One minute rate" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="five_minute_rate" dbNotNull="false" dbPosition="7" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="fiveMinuteRate" javaType="java.lang.Double" jdbcTypeCode="8" label="Five minute rate" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="fifteen_minute_rate" dbNotNull="false" dbPosition="8" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="fifteenMinuteRate" javaType="java.lang.Double" jdbcTypeCode="8" label="Fifteen minute rate" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="min" dbNotNull="false" dbPosition="9" dbSize="2147483647" dbTypeName="LONGTEXT" inputType="text" javaName="min" javaType="java.lang.String" jdbcTypeCode="-1" label="Min" longText="true" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="max" dbNotNull="false" dbPosition="10" dbSize="2147483647" dbTypeName="LONGTEXT" inputType="text" javaName="max" javaType="java.lang.String" jdbcTypeCode="-1" label="Max" longText="true" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="mean" dbNotNull="false" dbPosition="11" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="mean" javaType="java.lang.Double" jdbcTypeCode="8" label="Mean" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="stddev" dbNotNull="false" dbPosition="12" dbSize="10" dbTypeName="INT" inputType="number" javaName="stddev" javaType="java.lang.Integer" jdbcTypeCode="4" label="Stddev" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="median" dbNotNull="false" dbPosition="13" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="median" javaType="java.lang.Double" jdbcTypeCode="8" label="Median" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="seventy_five_percent" dbNotNull="false" dbPosition="14" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="seventyFivePercent" javaType="java.lang.Double" jdbcTypeCode="8" label="Seventy five percent" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ninety_five_percent" dbNotNull="false" dbPosition="15" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="ninetyFivePercent" javaType="java.lang.Double" jdbcTypeCode="8" label="Ninety five percent" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ninety_height_percent" dbNotNull="false" dbPosition="16" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="ninetyHeightPercent" javaType="java.lang.Double" jdbcTypeCode="8" label="Ninety height percent" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ninety_nine_percent" dbNotNull="false" dbPosition="17" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="ninetyNinePercent" javaType="java.lang.Double" jdbcTypeCode="8" label="Ninety nine percent" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ninety_nine_percent_point_nine" dbNotNull="false" dbPosition="18" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="ninetyNinePercentPointNine" javaType="java.lang.Double" jdbcTypeCode="8" label="Ninety nine percent point nine" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_creation" dbNotNull="false" dbPosition="19" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateCreation" javaType="java.util.Date" jdbcTypeCode="91" label="Date creation" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="date_modification" dbNotNull="false" dbPosition="20" dbSize="10" dbTypeName="DATE" inputType="date" javaName="dateModification" javaType="java.util.Date" jdbcTypeCode="91" label="Date modification" notNull="false" selected="true"/>
+<fk name="metricsRegistry_timers">
+<fkcol colname="id_metrics_registry" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="timers" tableref="metrics_registry" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="metricsRegistry_timers" id="LINK_FK_metricsRegistry_timers_O" inverseSideOf="" javaName="metricsRegistry" javaType="MetricsRegistry" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="timers" targetEntity="MetricsRegistry" targetTableName="metrics_registry" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="id_metrics_registry" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+</tableList>
+</root>

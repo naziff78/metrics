@@ -1,0 +1,645 @@
+
+GENERATOR VARIABLES :
+=====================
+
+* GENERATOR 
+$generator.name    = Telosys Tools Generator
+$generator.version = 2.1.1 
+
+* CURRENT DATE AND TIME 
+$today.date = 29 avr. 2016
+$today.time = 13:45:49
+$today.date("dd/MM/yyyy") = 29/04/2016
+$today.time("HH:mm")      = 13:45
+
+
+GENERATOR CONSTANTS FOR SPECIAL CHARACTERS :
+============================================
+$DOLLAR = $
+$SHARP  = #
+$AMP    = &
+$QUOT   = "
+$LT     = <
+$GT     = >
+$LBRACE = {
+$RBRACE = }
+
+GENERATOR CONSTANTS USABLE AS METHODS PARAMETERS :
+==================================================
+$const.KEY          =  1
+$const.NOT_KEY      =  2
+
+$const.TEXT         =  4
+$const.NOT_TEXT     =  8
+
+$const.IN_LINKS     =  16
+$const.NOT_IN_LINKS =  32
+
+$const.IN_SELECTED_LINKS      = 64
+$const.NOT_IN_SELECTED_LINKS  = 128
+
+$const.getKEY()     = 1
+$const.getNOT_KEY() = 2 
+
+
+PROJECT VARIABLES :
+===================
+
+Project packages ( predefined variables ) :
+$ROOT_PKG   = "org.demo"
+$ENTITY_PKG = "org.demo.bean"
+
+Project folders ( predefined variables ) :
+$SRC      = "src/main/java"
+$RES      = "src/main/resources"
+$WEB      = "src/main/webapp"
+$TEST_SRC = "src/test/java"
+$TEST_RES = "src/test/resources"
+$DOC      = "doc"
+$TMP      = "tmp"
+
+Project variables ( $project.variables ) including predefined variables :
+ . $WEB = src/main/webapp
+ . $ENTITY_PKG = org.demo.bean
+ . $MAVEN_ARTIFACT_ID = MetricSaved
+ . $TEST_SRC = src/test/java
+ . $RES = src/main/resources
+ . $PROJECT_NAME = MetricSaved
+ . $DOC = doc
+ . $MAVEN_GROUP_ID = group.to.be.defined
+ . $ROOT_PKG = org.demo
+ . $SRC = src/main/java
+ . $TEST_RES = src/test/resources
+ . $PROJECT_VERSION = 0.1
+ . $TMP = tmp
+
+
+ENTITY VARIABLES :
+==================
+
+* BEAN CLASS
+$entity.name            = Timers
+$fn.uncapitalize($entity.name) = timers
+$entity.package         = org.demo.bean
+$entity.databaseTable   = timers
+$entity.databaseCatalog = metrics
+$entity.databaseSchema  = 
+
+* BEAN CLASS ATTRIBUTES ( $entity.attributes )
+$entity.attributes.size() = 20 
+$attributes.size() = 20 
+
+* BEAN CLASS JPA ANNOTATIONS ( $jpa.entityAnnotations(2) )
+  @Entity
+  @Table(name="timers", catalog="metrics" )
+
+* BEAN CLASS AUTOINCREMTED PRIMARY KEY ?
+ $entity.autoincrementedKeyAttribute.databaseName = id
+
+KEY ATTRIBUTES : 
+ . id : type = Integer , auto-incremented = true
+
+ ------------------------------
+ Field : id
+ ------------------------------
+ Java :
+  $field.name      = id
+  $field.type      = Integer
+  $field.getter    = getId
+  $field.setter    = setId
+  $field.label     = Id
+  $field.inputType = number
+ Java bean validation annotations :
+  @NotNull
+ JPA annotations :
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  @Column(name="id", nullable=false)
+
+ Database :
+  $field.isKeyElement() = true
+  $field.isAutoIncremented() = true
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = id
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = true
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : idMetricsRegistry
+ ------------------------------
+ Java :
+  $field.name      = idMetricsRegistry
+  $field.type      = Integer
+  $field.getter    = getIdMetricsRegistry
+  $field.setter    = setIdMetricsRegistry
+  $field.label     = Id metrics registry
+  $field.inputType = number
+ Java bean validation annotations :
+  @NotNull
+ JPA annotations :
+  @Column(name="id_metrics_registry", nullable=false)
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = true
+  $field.databaseName = id_metrics_registry
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = true
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : nom
+ ------------------------------
+ Java :
+  $field.name      = nom
+  $field.type      = String
+  $field.getter    = getNom
+  $field.setter    = setNom
+  $field.label     = Nom
+  $field.inputType = text
+ Java bean validation annotations :
+  @Size( max = 255 )
+ JPA annotations :
+  @Column(name="nom", length=255)
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = nom
+  $field.databaseType = VARCHAR
+  $field.jdbcTypeCode = 12
+  $field.databaseSize = 255
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : count
+ ------------------------------
+ Java :
+  $field.name      = count
+  $field.type      = String
+  $field.getter    = getCount
+  $field.setter    = setCount
+  $field.label     = Count
+  $field.inputType = text
+ Java bean validation annotations :
+  @Size( max = 2147483647 )
+ JPA annotations :
+  @Column(name="count")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = count
+  $field.databaseType = LONGTEXT
+  $field.jdbcTypeCode = -1
+  $field.databaseSize = 2147483647
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : meanRate
+ ------------------------------
+ Java :
+  $field.name      = meanRate
+  $field.type      = Double
+  $field.getter    = getMeanRate
+  $field.setter    = setMeanRate
+  $field.label     = Mean rate
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="mean_rate")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = mean_rate
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : oneMinuteRate
+ ------------------------------
+ Java :
+  $field.name      = oneMinuteRate
+  $field.type      = Double
+  $field.getter    = getOneMinuteRate
+  $field.setter    = setOneMinuteRate
+  $field.label     = One minute rate
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="one_minute_rate")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = one_minute_rate
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : fiveMinuteRate
+ ------------------------------
+ Java :
+  $field.name      = fiveMinuteRate
+  $field.type      = Double
+  $field.getter    = getFiveMinuteRate
+  $field.setter    = setFiveMinuteRate
+  $field.label     = Five minute rate
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="five_minute_rate")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = five_minute_rate
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : fifteenMinuteRate
+ ------------------------------
+ Java :
+  $field.name      = fifteenMinuteRate
+  $field.type      = Double
+  $field.getter    = getFifteenMinuteRate
+  $field.setter    = setFifteenMinuteRate
+  $field.label     = Fifteen minute rate
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="fifteen_minute_rate")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = fifteen_minute_rate
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : min
+ ------------------------------
+ Java :
+  $field.name      = min
+  $field.type      = String
+  $field.getter    = getMin
+  $field.setter    = setMin
+  $field.label     = Min
+  $field.inputType = text
+ Java bean validation annotations :
+  @Size( max = 2147483647 )
+ JPA annotations :
+  @Column(name="min")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = min
+  $field.databaseType = LONGTEXT
+  $field.jdbcTypeCode = -1
+  $field.databaseSize = 2147483647
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : max
+ ------------------------------
+ Java :
+  $field.name      = max
+  $field.type      = String
+  $field.getter    = getMax
+  $field.setter    = setMax
+  $field.label     = Max
+  $field.inputType = text
+ Java bean validation annotations :
+  @Size( max = 2147483647 )
+ JPA annotations :
+  @Column(name="max")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = max
+  $field.databaseType = LONGTEXT
+  $field.jdbcTypeCode = -1
+  $field.databaseSize = 2147483647
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : mean
+ ------------------------------
+ Java :
+  $field.name      = mean
+  $field.type      = Double
+  $field.getter    = getMean
+  $field.setter    = setMean
+  $field.label     = Mean
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="mean")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = mean
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : stddev
+ ------------------------------
+ Java :
+  $field.name      = stddev
+  $field.type      = Integer
+  $field.getter    = getStddev
+  $field.setter    = setStddev
+  $field.label     = Stddev
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="stddev")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = stddev
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : median
+ ------------------------------
+ Java :
+  $field.name      = median
+  $field.type      = Double
+  $field.getter    = getMedian
+  $field.setter    = setMedian
+  $field.label     = Median
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="median")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = median
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : seventyFivePercent
+ ------------------------------
+ Java :
+  $field.name      = seventyFivePercent
+  $field.type      = Double
+  $field.getter    = getSeventyFivePercent
+  $field.setter    = setSeventyFivePercent
+  $field.label     = Seventy five percent
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="seventy_five_percent")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = seventy_five_percent
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : ninetyFivePercent
+ ------------------------------
+ Java :
+  $field.name      = ninetyFivePercent
+  $field.type      = Double
+  $field.getter    = getNinetyFivePercent
+  $field.setter    = setNinetyFivePercent
+  $field.label     = Ninety five percent
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="ninety_five_percent")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = ninety_five_percent
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : ninetyHeightPercent
+ ------------------------------
+ Java :
+  $field.name      = ninetyHeightPercent
+  $field.type      = Double
+  $field.getter    = getNinetyHeightPercent
+  $field.setter    = setNinetyHeightPercent
+  $field.label     = Ninety height percent
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="ninety_height_percent")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = ninety_height_percent
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : ninetyNinePercent
+ ------------------------------
+ Java :
+  $field.name      = ninetyNinePercent
+  $field.type      = Double
+  $field.getter    = getNinetyNinePercent
+  $field.setter    = setNinetyNinePercent
+  $field.label     = Ninety nine percent
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="ninety_nine_percent")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = ninety_nine_percent
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : ninetyNinePercentPointNine
+ ------------------------------
+ Java :
+  $field.name      = ninetyNinePercentPointNine
+  $field.type      = Double
+  $field.getter    = getNinetyNinePercentPointNine
+  $field.setter    = setNinetyNinePercentPointNine
+  $field.label     = Ninety nine percent point nine
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="ninety_nine_percent_point_nine")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = ninety_nine_percent_point_nine
+  $field.databaseType = DOUBLE
+  $field.jdbcTypeCode = 8
+  $field.databaseSize = 22
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : dateCreation
+ ------------------------------
+ Java :
+  $field.name      = dateCreation
+  $field.type      = Date
+  $field.getter    = getDateCreation
+  $field.setter    = setDateCreation
+  $field.label     = Date creation
+  $field.inputType = date
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Temporal(TemporalType.DATE)
+  @Column(name="date_creation")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = date_creation
+  $field.databaseType = DATE
+  $field.jdbcTypeCode = 91
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : dateModification
+ ------------------------------
+ Java :
+  $field.name      = dateModification
+  $field.type      = Date
+  $field.getter    = getDateModification
+  $field.setter    = setDateModification
+  $field.label     = Date modification
+  $field.inputType = date
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Temporal(TemporalType.DATE)
+  @Column(name="date_modification")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = date_modification
+  $field.databaseType = DATE
+  $field.jdbcTypeCode = 91
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+

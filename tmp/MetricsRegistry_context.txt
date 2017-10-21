@@ -1,0 +1,240 @@
+
+GENERATOR VARIABLES :
+=====================
+
+* GENERATOR 
+$generator.name    = Telosys Tools Generator
+$generator.version = 2.1.1 
+
+* CURRENT DATE AND TIME 
+$today.date = 29 avr. 2016
+$today.time = 13:45:49
+$today.date("dd/MM/yyyy") = 29/04/2016
+$today.time("HH:mm")      = 13:45
+
+
+GENERATOR CONSTANTS FOR SPECIAL CHARACTERS :
+============================================
+$DOLLAR = $
+$SHARP  = #
+$AMP    = &
+$QUOT   = "
+$LT     = <
+$GT     = >
+$LBRACE = {
+$RBRACE = }
+
+GENERATOR CONSTANTS USABLE AS METHODS PARAMETERS :
+==================================================
+$const.KEY          =  1
+$const.NOT_KEY      =  2
+
+$const.TEXT         =  4
+$const.NOT_TEXT     =  8
+
+$const.IN_LINKS     =  16
+$const.NOT_IN_LINKS =  32
+
+$const.IN_SELECTED_LINKS      = 64
+$const.NOT_IN_SELECTED_LINKS  = 128
+
+$const.getKEY()     = 1
+$const.getNOT_KEY() = 2 
+
+
+PROJECT VARIABLES :
+===================
+
+Project packages ( predefined variables ) :
+$ROOT_PKG   = "org.demo"
+$ENTITY_PKG = "org.demo.bean"
+
+Project folders ( predefined variables ) :
+$SRC      = "src/main/java"
+$RES      = "src/main/resources"
+$WEB      = "src/main/webapp"
+$TEST_SRC = "src/test/java"
+$TEST_RES = "src/test/resources"
+$DOC      = "doc"
+$TMP      = "tmp"
+
+Project variables ( $project.variables ) including predefined variables :
+ . $WEB = src/main/webapp
+ . $ENTITY_PKG = org.demo.bean
+ . $MAVEN_ARTIFACT_ID = MetricSaved
+ . $TEST_SRC = src/test/java
+ . $RES = src/main/resources
+ . $PROJECT_NAME = MetricSaved
+ . $DOC = doc
+ . $MAVEN_GROUP_ID = group.to.be.defined
+ . $ROOT_PKG = org.demo
+ . $SRC = src/main/java
+ . $TEST_RES = src/test/resources
+ . $PROJECT_VERSION = 0.1
+ . $TMP = tmp
+
+
+ENTITY VARIABLES :
+==================
+
+* BEAN CLASS
+$entity.name            = MetricsRegistry
+$fn.uncapitalize($entity.name) = metricsRegistry
+$entity.package         = org.demo.bean
+$entity.databaseTable   = metrics_registry
+$entity.databaseCatalog = metrics
+$entity.databaseSchema  = 
+
+* BEAN CLASS ATTRIBUTES ( $entity.attributes )
+$entity.attributes.size() = 5 
+$attributes.size() = 5 
+
+* BEAN CLASS JPA ANNOTATIONS ( $jpa.entityAnnotations(2) )
+  @Entity
+  @Table(name="metrics_registry", catalog="metrics" )
+
+* BEAN CLASS AUTOINCREMTED PRIMARY KEY ?
+ $entity.autoincrementedKeyAttribute.databaseName = id
+
+KEY ATTRIBUTES : 
+ . id : type = Integer , auto-incremented = true
+
+ ------------------------------
+ Field : id
+ ------------------------------
+ Java :
+  $field.name      = id
+  $field.type      = Integer
+  $field.getter    = getId
+  $field.setter    = setId
+  $field.label     = Id
+  $field.inputType = number
+ Java bean validation annotations :
+  @NotNull
+ JPA annotations :
+  @Id
+  @GeneratedValue(strategy=GenerationType.AUTO)
+  @Column(name="id", nullable=false)
+
+ Database :
+  $field.isKeyElement() = true
+  $field.isAutoIncremented() = true
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = id
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = true
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : idProjet
+ ------------------------------
+ Java :
+  $field.name      = idProjet
+  $field.type      = Integer
+  $field.getter    = getIdProjet
+  $field.setter    = setIdProjet
+  $field.label     = Id projet
+  $field.inputType = number
+ Java bean validation annotations :
+  @NotNull
+ JPA annotations :
+  @Column(name="id_projet", nullable=false)
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = true
+  $field.databaseName = id_projet
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = true
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : nom
+ ------------------------------
+ Java :
+  $field.name      = nom
+  $field.type      = Integer
+  $field.getter    = getNom
+  $field.setter    = setNom
+  $field.label     = Nom
+  $field.inputType = number
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Column(name="nom")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = nom
+  $field.databaseType = INT
+  $field.jdbcTypeCode = 4
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : dateCreation
+ ------------------------------
+ Java :
+  $field.name      = dateCreation
+  $field.type      = Date
+  $field.getter    = getDateCreation
+  $field.setter    = setDateCreation
+  $field.label     = Date creation
+  $field.inputType = date
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Temporal(TemporalType.DATE)
+  @Column(name="date_creation")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = date_creation
+  $field.databaseType = DATE
+  $field.jdbcTypeCode = 91
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
+ ------------------------------
+ Field : dateModification
+ ------------------------------
+ Java :
+  $field.name      = dateModification
+  $field.type      = Date
+  $field.getter    = getDateModification
+  $field.setter    = setDateModification
+  $field.label     = Date modification
+  $field.inputType = date
+ Java bean validation annotations :
+
+ JPA annotations :
+  @Temporal(TemporalType.DATE)
+  @Column(name="date_modification")
+
+ Database :
+  $field.isKeyElement() = false
+  $field.isAutoIncremented() = false
+  $field.isUsedInForeignKey() = false
+  $field.databaseName = date_modification
+  $field.databaseType = DATE
+  $field.jdbcTypeCode = 91
+  $field.databaseSize = 10
+  $field.isDatabaseNotNull = false
+  $field.hasDatabaseDefaultValue() = false
+  $field.databaseDefaultValue = 
+
