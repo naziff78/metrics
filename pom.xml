@@ -198,11 +198,26 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-				<source>${java.version}</source>
-				<target>${java.version}</target>
-				 <fork>true</fork>
-            	<executable>C:\Program Files (x86)\Java\jdk1.7.0_51\bin\javac.exe</executable>
-				</configuration>		
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<fork>true</fork>
+					<executable>C:\Program Files (x86)\Java\jdk1.7.0_51\bin\javac.exe</executable>
+				</configuration>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>2.17</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>findbugs-maven-plugin</artifactId>
+					<version>3.0.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-pmd-plugin</artifactId>
+					<version>3.8</version>
+				</plugin>
 			</plugin>
 		</plugins>
 	</build>
