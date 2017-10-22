@@ -200,6 +200,7 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<fork>true</fork>
 					<executable>C:\Program Files (x86)\Java\jdk1.7.0_51\bin\javac.exe</executable>
 				</configuration>
 			</plugin>
